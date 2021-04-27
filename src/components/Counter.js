@@ -2,6 +2,7 @@ import {Component} from "react"
 
 import { useSelector,useDispatch ,connect} from 'react-redux';
 
+import {counterActions} from "../store/counter"
 import classes from './Counter.module.css';
 
 // const Counter = () => {
@@ -63,14 +64,14 @@ class Counter extends Component{
 
 const mapStateToProps = (state) => {
  return {
-   counter:state.counter
+   counter:state.counter.counter
  }
 }
 
 const mapDispatchToProps = (dispatch) => {
 return {
-  increment:()=> dispatch({type:"increment",payload:5}),
-  decrement:()=> dispatch({type:"decrement",payload:5})
+  increment:()=> dispatch(counterActions.increment(5)),
+  decrement:()=> dispatch(counterActions.decrement())
 }
 }
 
